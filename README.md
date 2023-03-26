@@ -7,7 +7,7 @@ original-app
 
 
 # URL
-後で記載
+https://original-app-zih8.onrender.com
 
 
 # テスト用アカウント
