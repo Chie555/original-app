@@ -58,16 +58,18 @@ https://original-app-zih8.onrender.com
 
 ## posts テーブル
 
-| Column         | Type              | Options                       |
-| -------------- | ----------------- | ----------------------------- |
-| weight         | integer           | null: false                   |
-| fat_percentage | integer           |                               |
-| today1_id      | integer           |                               |
-| today1_memo    | string            |                               |
-| today2_id      | integer           |                               |
-| today2_memo    | string            |                               |
-| today3_id      | integer           |                               |
-| today3_memo    | string            |                               |
+| Column         | Type              | Options                        |
+| -------------- | ----------------- | ------------------------------ |
+| weight         | integer           | null: false                    |
+| fat_percentage | integer           |                                |
+| today1_id      | integer           |                                |
+| today1_memo    | string            |                                |
+| today2_id      | integer           |                                |
+| today2_memo    | string            |                                |
+| today3_id      | integer           |                                |
+| today3_memo    | string            |                                |
+| memo           | text              |                                |
+| user           | references        | null: false, foreign_key: true |
 
 
 ### Association

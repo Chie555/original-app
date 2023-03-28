@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
 
+
   private
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == 'admin' && password == '2023'
+      username == ENV["BASIC_AUTH_USER2"] && password == ENV["BASIC_AUTH_PASSWORD2"]
     end
   end
 end
