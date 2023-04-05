@@ -102,4 +102,4 @@ https://original-app-zih8.onrender.com
 - belongs_to :post
 
 # ER図
-[![Image from Gyazo](https://i.gyazo.com/f5eb1547e840222a2d21436cc5cfc768.png)](https://gyazo.com/f5eb1547e840222a2d21436cc5cfc768)
+[![Image from Gyazo](https://i.gyazo.com/25e6a28270df497bb6cc3f957e3f76d4.png)](https://gyazo.com/25e6a28270df497bb6cc3f957e3f76d4)
