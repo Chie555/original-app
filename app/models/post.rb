@@ -9,8 +9,8 @@ class Post < ApplicationRecord
   belongs_to :user
   # has_many :comments
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :today1_id
-  belongs_to :today2_id
-  belongs_to :today3_id
+  #extend ActiveHash::Associations::ActiveRecordExtensions
+  #belongs_to :today1_id
+  #belongs_to :today2_id
+  #belongs_to :today3_id
 end
