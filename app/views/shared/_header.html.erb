@@ -1,0 +1,41 @@
+  <link rel="stylesheets/shared" href="header.css">
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
+    <form class="search-form" action=index> <%#あとで修正%>
+      <input class='input-box' placeholder='キーワードから探す'>
+      <button class="search-button">
+        <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'カテゴリー', root_path, class: "category-list" %></li><%#あとで修正%>
+      <li><%= link_to 'ブランド', root_path, class: "brand-list" %></li><%#あとで修正%>
+    </ul>
+</header>
+
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <% if user_signed_in? %>
+              <li><%= link_to 'マイページ', root_path, class: "text-white" %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white" %></li>
+            <% else %>
+              <li><%= link_to '新規登録', new_user_registration_path, class: "text-white" %></li>
+              <li><%= link_to 'ログイン', new_user_session_path, class: "text-white" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
