@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :posts
   # has_many :follows
   # has_many :comments
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :sex_id
+  belongs_to :prefecture_id
 end
