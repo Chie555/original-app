@@ -43,12 +43,12 @@ https://original-app-zih8.onrender.com
 | email              | string      | null: false, unique: true |
 | encrypted_password | string      | null: false               |
 | sex_id             | integer     |                           |
-| birthday           | string      |                           |
+| birthday           | date        |                           |
 | prefecture_id      | integer     |                           |
-| weight             | integer     | null: false               |
-| height             | integer     | null: false               |
-| fat_percentage     | integer     |                           |
-| target_weight      | integer     | null: false               |
+| weight             | float       | null: false               |
+| height             | float       | null: false               |
+| fat_percentage     | float       |                           |
+| target_weight      | float       | null: false               |
 
 ### Association
 

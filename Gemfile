@@ -63,3 +63,5 @@ end
 
 gem 'pry-rails'
 gem 'net-http'
+gem 'devise'
+gem 'active_hash'
