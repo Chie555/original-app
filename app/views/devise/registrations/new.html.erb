@@ -76,34 +76,50 @@
     </div>
     <p class='info-text'>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
   </div>
-  <div class="weight-bold-text">
-    居住地（都道府県）
-    <span class="indispensable">任意</span>
-  </div>
-  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
-  <div class="weight-content">
-    <div class="weight-bold-text">
-      <span>体重</span>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_field :weight, class:"weight-input", id:"user-weight", placeholder:"例）50.0" %>
-    <span class="weight-kg">kg</span>
-  </div>
-  <div class="height-content">
-    <div class="weight-bold-text">
-      <span>身長</span>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_field :height, class:"height-input", id:"user-height", placeholder:"例）160.0" %>
-    <span class="height-cm">cm</span>
-  </div>
-  <div class="fat-percentage-content">
-    <div class="weight-bold-text">
-      <span>体脂肪率</span>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">居住地（都道府県）</label>
       <span class="indispensable">任意</span>
     </div>
-    <%= f.text_field :fat_percentage, class:"fat-percentage-input", id:"user-fat-percentage", placeholder:"例）20.0" %>
-    <span class="fat-percentage-%">%</span>
+    <div class='input-sex-wrap'>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">体重（kg）</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-sex-wrap'>
+      <%= f.text_field :weight, class:"weight-input", id:"user-weight", placeholder:"例）50.0" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">身長（cm）</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-sex-wrap'>
+      <%= f.text_field :height, class:"weight-input", id:"user-weight", placeholder:"例）160.0" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">体脂肪率（%）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-sex-wrap'>
+      <%= f.text_field :fat_percentage, class:"weight-input", id:"user-weight", placeholder:"例）20.0" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">目標体重（kg）</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class='input-sex-wrap'>
+      <%= f.text_field :target_weight, class:"weight-input", id:"user-weight", placeholder:"例）50.0" %>
+    </div>
   </div>
   <div class="form-group">
     <h2 class='form-bottom-text'>
