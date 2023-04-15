@@ -145,9 +145,26 @@
   cursor: pointer;
 }
 
+.bmi-content {
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.target-bmi-text {
+  display: flex;
+  align-items: center;
+}
+
+.bmi-image {
+  width: 300px
+}
+
 .register-btn {
   width: 50%;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 .register-red-btn {
