@@ -100,7 +100,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-sex-wrap'>
-      <%= f.text_field :height, class:"weight-input", id:"user-weight", placeholder:"例）160.0" %>
+      <%= f.text_field :height, class:"weight-input", id:"user-height", placeholder:"例）160.0" %>
     </div>
   </div>
   <div class="form-group">
@@ -109,27 +109,27 @@
       <span class="indispensable">任意</span>
     </div>
     <div class='input-sex-wrap'>
-      <%= f.text_field :fat_percentage, class:"weight-input", id:"user-weight", placeholder:"例）20.0" %>
+      <%= f.text_field :fat_percentage, class:"weight-input", id:"user-fat-percentage", placeholder:"例）20.0" %>
     </div>
   </div>
   <%# BMI %>
   <div class="form-group">
-    <label class="form-text">現在のあなたのBMI</label>
-    <span>
-      【<span id='now-bmi'></span>】
-    </span>
-  <label class="form-text">【参考】BMI一覧表</label>
+    <label class="form-text">現在のあなたのBMIは【<span id='now-bmi'></span>】です。</label>
+  </div>
+  <div class="form-group">
+    <label class="form-text">【参考】BMI一覧表</label>
     <%= link_to image_tag("bmi.png", class:"bmi-image"), "/" %>
   </div>
   <div class="form-group">
     <div class="form-text-wrap">
+      <label class="form-text">◼️目標BMIを入力すると、参考体重が表示されます。</label>
       <label class="form-text">目標BMI</label>
       <span class="indispensable">任意</span>
     </div>
     <div class='input-sex-wrap'>
       <%= f.text_field :target_bmi, class:"bmi-input", id:"target-bmi", placeholder:"例）18.0" %>
     </div>
-    <span>あなたの目標体重は【<span id='tentative-weight'></span>kg】前後です。</span>
+    <label class="form-text">あなたの目標体重は【<span id='tentative-weight'></span>kg】前後です。</label>
   </div>
   <%# /BMI %>
   <div class="form-group">
@@ -138,7 +138,7 @@
       <span class="indispensable">必須</span>
     </div>
     <div class='input-sex-wrap'>
-      <%= f.text_field :target_weight, class:"weight-input", id:"user-weight", placeholder:"例）50.0" %>
+      <%= f.text_field :target_weight, class:"weight-input", id:"target-weight", placeholder:"例）50.0" %>
     </div>
   </div>
   <div class='register-btn'>
