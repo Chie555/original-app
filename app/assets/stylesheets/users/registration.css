@@ -75,14 +75,6 @@
   font-size: 15px;
 }
 
-.input-sex-wrap {
-  width: 75px;
-  margin-top: 5px;
-  height: 45px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .input-name {
   width: 130px;
   margin: 5px 20px 0 20px;

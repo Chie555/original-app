@@ -52,7 +52,7 @@
       <label class="form-text">性別</label>
       <span class="indispensable">任意</span>
     </div>
-    <div class='input-sex-wrap'>
+    <div class='input-birth-wrap'>
       <%= f.collection_select(:category_id, Sex.all, :id, :name, {}, {class:"select-box", id:"user-category"}) %>
     </div>
   </div>
@@ -81,7 +81,7 @@
       <label class="form-text">居住地（都道府県）</label>
       <span class="indispensable">任意</span>
     </div>
-    <div class='input-sex-wrap'>
+    <div class='input-birth-wrap'>
       <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
     </div>
   </div>
@@ -90,27 +90,21 @@
       <label class="form-text">体重（kg）</label>
       <span class="indispensable">必須</span>
     </div>
-    <div class='input-sex-wrap'>
-      <%= f.text_field :weight, class:"weight-input", id:"user-weight", placeholder:"例）50.0" %>
-    </div>
+    <%= f.text_field :weight, class:"input-default", id:"user-weight", placeholder:"例）50.0" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">身長（cm）</label>
       <span class="indispensable">必須</span>
     </div>
-    <div class='input-sex-wrap'>
-      <%= f.text_field :height, class:"weight-input", id:"user-height", placeholder:"例）160.0" %>
-    </div>
+    <%= f.text_field :height,  class:"input-default", id:"user-height", placeholder:"例）160.0" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">体脂肪率（%）</label>
       <span class="indispensable">任意</span>
     </div>
-    <div class='input-sex-wrap'>
-      <%= f.text_field :fat_percentage, class:"weight-input", id:"user-fat-percentage", placeholder:"例）20.0" %>
-    </div>
+    <%= f.text_field :fat_percentage,  class:"input-default", id:"user-fat-percentage", placeholder:"例）20.0" %>
   </div>
   <%# BMI %>
   <div class="form-group">
@@ -126,9 +120,7 @@
       <label class="form-text">目標BMI</label>
       <span class="indispensable">任意</span>
     </div>
-    <div class='input-sex-wrap'>
-      <%= f.text_field :target_bmi, class:"bmi-input", id:"target-bmi", placeholder:"例）18.0" %>
-    </div>
+    <%= f.text_field :target_bmi,  class:"input-default", id:"target-bmi", placeholder:"例）18.0" %>
     <label class="form-text">あなたの目標体重は【<span id='tentative-weight'></span>kg】前後です。</label>
   </div>
   <%# /BMI %>
@@ -137,9 +129,7 @@
       <label class="form-text">目標体重（kg）</label>
       <span class="indispensable">必須</span>
     </div>
-    <div class='input-sex-wrap'>
-      <%= f.text_field :target_weight, class:"weight-input", id:"target-weight", placeholder:"例）50.0" %>
-    </div>
+    <%= f.text_field :target_weight,  class:"input-default", id:"target-weight", placeholder:"例）50.0" %>
   </div>
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
