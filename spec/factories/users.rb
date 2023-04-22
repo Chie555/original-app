@@ -7,10 +7,9 @@ FactoryBot.define do
     sex_id                { Faker::Number.between(from: 1, to: 2) }
     birthday              { Faker::Date.birthday }
     prefecture_id         { Faker::Number.between(from: 1, to: 47) }
-    weight                { Faker::randomFloat(1, 30, 200) }
-    height                { Faker::randomFloat(1, 100, 200) }
-    fat_percentage        { Faker::randomFloat(1, 3, 70) }
-    taeget_bmi            { Faker::randomFloat(1, 10, 50) }
-    taeget_weight         { Faker::randomFloat(1, 30, 200) }
+    weight                { 45.3 }
+    height                { 150.3 }
+    fat_percentage        { 20.5 }
+    target_weight         { 40.2 }
   end
 end
