@@ -21,6 +21,6 @@ class User < ApplicationRecord
   # has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :sex
-  belongs_to :prefecture
+  belongs_to :sex, optional: true
+  belongs_to :prefecture, optional: true
 end
