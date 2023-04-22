@@ -1,0 +1,39 @@
+<%= render "shared/header"%>
+
+
+<%= form_with(model: @post, local: true) do |f| %>
+
+  <div class="title">
+    <%= f.collection_select(:today1_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  </div>
+
+  <div class="content">
+    <%= f.label :content %>
+    <%= f.text_field :today1_memo %>
+  </div>
+
+  <div class="title">
+    <%= f.collection_select(:today2_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  </div>
+
+  <div class="content">
+    <%= f.label :content %>
+    <%= f.text_field :today2_memo %>
+  </div>
+
+    <div class="title">
+    <%= f.collection_select(:today3_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  </div>
+
+  <div class="content">
+    <%= f.label :content %>
+    <%= f.text_field :today3_memo %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<%= render "shared/footer"%>
