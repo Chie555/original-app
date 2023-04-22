@@ -15,7 +15,6 @@ RSpec.describe User, type: :model do
         @user.birthday = ''
         @user.prefecture_id = '0'
         @user.fat_percentage = ''
-        @user.target_bmi = ''
       end
     end
 
@@ -35,7 +34,7 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include('Email has exist')
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
       it 'emailは@を含まないと登録できない' do
         @user.email = 'testmail.com'
@@ -50,7 +49,7 @@ RSpec.describe User, type: :model do
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'aaa00'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password は半角英数字混合で入力してください')
+        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
       it '英字のみのパスワードでは登録できない' do
         @user.password = 'aaaaaa'
@@ -76,17 +75,62 @@ RSpec.describe User, type: :model do
       it '体重が空では登録できない' do
         @user.weight = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Weight can't be blank")
+        expect(@user.errors.full_messages).to include("Weight is not a number")
+      end
+      it '体重が全角では登録できない' do
+        @user.weight = '４２.2'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Weight is not a number")
+      end
+      it '体重が30kg未満では登録できない' do
+        @user.weight = '25'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Weight must be greater than or equal to 30")
+      end
+      it '体重が200kg以上では登録できない' do
+        @user.weight = '250'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Weight must be less than or equal to 200")
       end
       it '身長が空では登録できない' do
         @user.height = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Height can't be blank")
+        expect(@user.errors.full_messages).to include("Height is not a number")
+      end
+      it '身長が全角では登録できない' do
+        @user.height = '１５２.2'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Height is not a number")
+      end
+      it '身長が100cm未満では登録できない' do
+        @user.height = '50'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Height must be greater than or equal to 100")
+      end
+      it '身長が200cm以上では登録できない' do
+        @user.height = '250'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Height must be less than or equal to 200")
       end
       it '目標体重が空では登録できない' do
-        @user.target_height = ''
+        @user.target_weight = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("TargetWeight can't be blank")
+        expect(@user.errors.full_messages).to include("Target weight is not a number")
+      end
+      it '目標体重が全角では登録できない' do
+        @user.target_weight = '４０.2'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Target weight is not a number")
+      end
+      it '目標体重が30kg未満では登録できない' do
+        @user.target_weight = '25'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Target weight must be greater than or equal to 30")
+      end
+      it '体重が200kg以上では登録できない' do
+        @user.target_weight = '250'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Target weight must be less than or equal to 200")
       end
     end
   end
