@@ -1,6 +1,9 @@
 <%= render "shared/header"%>
 
 <%= form_with(model: @post, local: true) do |f| %>
+  <%# エラー発生時のメッセージ表示%>
+  <%= render 'shared/error_messages', model: f.object %>
+
   <div class="form-group">
     <label class="form-text">記録・予定を入力したい日付を教えてください。</label>
     <div class='input-birth-wrap'>
@@ -91,6 +94,18 @@
     </div>
     <div class='input-birth-wrap'>
       <%= f.text_field :today3_memo, class:"input-default", id:"today3_memo", placeholder:"予定詳細（例：サロン名）" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-text-wrap">
+      <label class="form-text">今日の画像</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class="click-upload">
+      <p>
+        <label class="form-text">↓クリックしてファイルをアップロード</label>
+      </p>
+      <%= f.file_field :image, id:"item-image" %>
     </div>
   </div>
   <div class="form-group">

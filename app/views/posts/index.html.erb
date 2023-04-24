@@ -6,13 +6,43 @@
         こんにちは、
         <%= link_to "#{current_user.nickname}さん", edit_user_registration_path(current_user), class: :greeting__link%>
       </div>
+      <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.today1_id %></td>
+        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
+        <td><%= link_to '詳細ページ', post %></td>
+        <td><%= link_to '編集する', edit_post_path(post.id) %></td>
+        <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
+      </tr>
+      <tr>
+        <td><%= post.today2_id %></td>
+        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
+        <td><%= link_to '詳細ページ', post %></td>
+        <td><%= link_to '編集する', edit_post_path(post.id) %></td>
+        <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
+      </tr>
+      <tr>
+        <td><%= post.today3_id %></td>
+        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
+        <td><%= link_to '詳細ページ', post %></td>
+        <td><%= link_to '編集する', edit_post_path(post.id) %></td>
+        <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
+      </tr>
+    <% end %>
       <%= link_to(new_post_path, class: 'purchase-btn') do %>
       <%= image_tag 'yotei_btn.png' , size: '118x53' ,class: "purchase-btn-icon" %>
       <% end %>
     <% end %>
     <div class="card__wrapper">
-    <%= month_calendar do |date| %>
+    <%= month_calendar do |date, posts| %>
         <%= date.day %>
+        <% posts.each do |post| %>
+          <div>
+            <%= link_to post.today1_id, post %>
+            <%= link_to post.today2_id, post %>
+            <%= link_to post.today3_id, post %>
+          </div>
+        <% end %>
     <% end %>
     </div>
   </div>
