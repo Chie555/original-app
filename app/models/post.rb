@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  validates :schedule_date, presence: true, numericality: true
   validates :weight, presence: true, numericality: true
   validates :fat_percentage, numericality: true
 
