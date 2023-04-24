@@ -1,39 +1,110 @@
 <%= render "shared/header"%>
 
-
 <%= form_with(model: @post, local: true) do |f| %>
-
-  <div class="title">
-    <%= f.collection_select(:today1_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  <div class="form-group">
+    <label class="form-text">記録・予定を入力したい日付を教えてください。</label>
+    <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :schedule_date,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 2023,
+                    end_year: (Time.now.year + 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
   </div>
-
-  <div class="content">
-    <%= f.label :content %>
-    <%= f.text_field :today1_memo %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">体重（kg）</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :weight, class:"input-default", id:"user-weight", placeholder:"例）50.0" %>
   </div>
-
-  <div class="title">
-    <%= f.collection_select(:today2_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">体脂肪率（%）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <%= f.text_field :fat_percentage,  class:"input-default", id:"user-fat-percentage", placeholder:"例）20.0" %>
   </div>
-
-  <div class="content">
-    <%= f.label :content %>
-    <%= f.text_field :today2_memo %>
+  <%# BMI %>
+  <div class="form-group">
+    <label class="form-text">現在のあなたのBMIは【<span id='now-bmi'></span>】です。</label>
   </div>
-
-    <div class="title">
-    <%= f.collection_select(:today3_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  <div class="form-group">
+    <label class="form-text">【参考】BMI一覧表</label>
+    <%= link_to image_tag("bmi.png", class:"bmi-image"), "/" %>
   </div>
-
-  <div class="content">
-    <%= f.label :content %>
-    <%= f.text_field :today3_memo %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定（1つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.collection_select(:today1_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+    </div>
   </div>
-
-  <div class="submit">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定詳細（1つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.text_field :today1_memo, class:"input-default", id:"today1_memo", placeholder:"予定詳細（例：サロン名）" %>
+    </div>
   </div>
-
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定（2つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.collection_select(:today2_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定詳細（2つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.text_field :today2_memo, class:"input-default", id:"today2_memo", placeholder:"予定詳細（例：サロン名）" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定（3つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.collection_select(:today3_id, Today.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日の予定詳細（3つ目）</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.text_field :today3_memo, class:"input-default", id:"today3_memo", placeholder:"予定詳細（例：サロン名）" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">今日のメモ</label>
+      <span class="indispensable">任意</span>
+    </div>
+    <div class='input-birth-wrap'>
+      <%= f.text_area :memo, class:"input-default", id:"today_memo", placeholder:"日記、備考等" %>
+    </div>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "登録する" ,class:"register-red-btn" %>
+  </div>
 <% end %>
 
 <%= render "shared/footer"%>

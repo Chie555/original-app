@@ -67,3 +67,5 @@ gem 'devise'
 gem 'active_hash'
 gem "simple_calendar", "~> 2.4"
 gem 'rails-i18n'
+gem 'jquery-datetimepicker-rails'
+gem 'bootstrap-datetimepicker-rails'

@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_22_144029) do
+ActiveRecord::Schema.define(version: 2023_04_24_140925) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.float "weight", null: false
     t.float "fat_percentage"
+    t.date "schedule_date"
     t.integer "today1_id"
     t.string "today1_memo"
     t.integer "today2_id"
@@ -24,7 +26,6 @@ ActiveRecord::Schema.define(version: 2023_04_22_144029) do
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
