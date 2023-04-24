@@ -6,8 +6,14 @@
         こんにちは、
         <%= link_to "#{current_user.nickname}さん", edit_user_registration_path(current_user), class: :greeting__link%>
       </div>
+      <%= link_to(new_post_path, class: 'purchase-btn') do %>
+      <%= image_tag 'yotei_btn.png' , size: '118x53' ,class: "purchase-btn-icon" %>
+      <% end %>
     <% end %>
     <div class="card__wrapper">
+    <%= month_calendar do |date| %>
+        <%= date.day %>
+    <% end %>
     </div>
   </div>
 </main>

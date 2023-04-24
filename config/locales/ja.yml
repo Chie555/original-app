@@ -1,0 +1,15 @@
+ja:
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        sex_id: 性別
+        birthday: 生年月日
+        prefecture_id: 居住地（都道府県）
+        weight: 体重（kg）
+        height: 身長（cm）
+        fat_percentage: 体脂肪率（%）
+        target_weight: 目標体重（kg）
