@@ -16,7 +16,7 @@
       <% end %>
       <div>
       <%= link_to(new_post_path, class: 'purchase-btn') do %>
-      <%= image_tag 'yotei_btn.png' , size: '118x53' ,class: "purchase-btn-icon" %>
+      <%= image_tag 'yotei_btn.png' , size: '237x47' ,class: "purchase-btn-icon" %>
       <% end %>
       </div>
     <% end %>
@@ -26,6 +26,10 @@
         <% posts.each do |post| %>
           <div>
             <%= link_to "#{post.weight}kg", edit_post_path(post.id) %>
+            <%= link_to "#{post.today1_id}#{post.today1_memo}", edit_post_path(post.id) %>
+            <%= link_to "#{post.today2_id}#{post.today2_memo}", edit_post_path(post.id) %>
+            <%= link_to "#{post.today3_id}#{post.today3_memo}", edit_post_path(post.id) %>
+
           </div>
         <% end %>
     <% end %>
