@@ -69,3 +69,6 @@ gem "simple_calendar", "~> 2.4"
 gem 'rails-i18n'
 gem 'jquery-datetimepicker-rails'
 gem 'bootstrap-datetimepicker-rails'
+gem "chartkick"
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

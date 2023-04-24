@@ -3,10 +3,13 @@ class PostsController < ApplicationController
 
 
   def index
+    @posts = Post.all
+
   end
 
   def new
     @post = Post.new
+    binding.pry
   end
 
   def show
@@ -14,24 +17,31 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_parameter)
-    redirect_to posts_path
+    @Post = Post.new(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path, notice:"削除しました"
+    redirect_to root_path, notice:"削除しました"
   end
 
   def edit
     @post = Post.find(params[:id])
+    unless @post.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_parameter)
-      redirect_to posts_path, notice: "編集しました"
+    if @post.update(post_params)
+      redirect_to root_path, notice: "編集しました"
     else
       render 'edit'
     end
@@ -39,8 +49,8 @@ class PostsController < ApplicationController
 
   private
 
-  def post_parameter
-    params.require(:post).permit(:weight, :fat_percentage, :today1_id, :today1_memo, :today2_id, :today2_memo, :today3_id, :today3_memo, :memo).merge(user_id: current_user.id)
+  def post_params
+    params.require(:post).permit(:schedule_date, :weight, :fat_percentage, :today1_id, :today1_memo, :today2_id, :today2_memo, :today3_id, :today3_memo, :image, :memo).merge(user_id: current_user.id)
   end
 
 end
