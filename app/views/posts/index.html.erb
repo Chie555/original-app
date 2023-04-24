@@ -8,39 +8,24 @@
       </div>
       <% @posts.each do |post| %>
       <tr>
-        <td><%= post.today1_id %></td>
-        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to '詳細ページ', post %></td>
+        <td><%= post.weight %>kg</td>
+        <td><%= post.start_time.strftime("%Y-%m-%d") %></td>
         <td><%= link_to '編集する', edit_post_path(post.id) %></td>
         <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
       </tr>
-      <tr>
-        <td><%= post.today2_id %></td>
-        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to '詳細ページ', post %></td>
-        <td><%= link_to '編集する', edit_post_path(post.id) %></td>
-        <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
-      </tr>
-      <tr>
-        <td><%= post.today3_id %></td>
-        <td><%= post.schedule_date.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to '詳細ページ', post %></td>
-        <td><%= link_to '編集する', edit_post_path(post.id) %></td>
-        <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
-      </tr>
-    <% end %>
+      <% end %>
+      <div>
       <%= link_to(new_post_path, class: 'purchase-btn') do %>
       <%= image_tag 'yotei_btn.png' , size: '118x53' ,class: "purchase-btn-icon" %>
       <% end %>
+      </div>
     <% end %>
     <div class="card__wrapper">
-    <%= month_calendar do |date, posts| %>
+    <%= month_calendar events: @posts do |date, posts| %>
         <%= date.day %>
         <% posts.each do |post| %>
           <div>
-            <%= link_to post.today1_id, post %>
-            <%= link_to post.today2_id, post %>
-            <%= link_to post.today3_id, post %>
+            <%= link_to "#{post.weight}kg", edit_post_path(post.id) %>
           </div>
         <% end %>
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_24_213122) do
+ActiveRecord::Schema.define(version: 2023_04_24_230213) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2023_04_24_213122) do
     t.bigint "user_id", null: false
     t.float "weight", null: false
     t.float "fat_percentage"
-    t.date "schedule_date"
+    t.date "start_time"
     t.integer "today1_id"
     t.string "today1_memo"
     t.integer "today2_id"

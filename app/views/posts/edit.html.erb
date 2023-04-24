@@ -1,23 +1,6 @@
 <%= render "shared/header"%>
 
 <%= form_with model: @post, local: true do |f| %>
-
-  <div class="form-group">
-    <label class="form-text">記録・予定を入力したい日付を教えてください。</label>
-    <div class='input-birth-wrap'>
-      <%= raw sprintf(
-                  f.date_select(
-                    :start_time,
-                    class:'select-birth',
-                    id:"birth-date",
-                    use_month_numbers: true,
-                    prompt:'--',
-                    start_year: 2023,
-                    end_year: (Time.now.year + 5),
-                    date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
-  </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">体重（kg）</label>
@@ -116,7 +99,7 @@
     </div>
   </div>
   <div class='register-btn'>
-    <%= f.submit "登録する" ,class:"register-red-btn" %>
+    <%= f.submit "更新する" ,class:"register-red-btn" %>
     <%=link_to 'もどる', root_path, class:"back-btn" %>
   </div>
 <% end %>
