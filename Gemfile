@@ -72,3 +72,4 @@ gem 'bootstrap-datetimepicker-rails'
 gem "chartkick"
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+gem 'jquery-rails'
