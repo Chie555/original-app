@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :schedule_date, presence: true
+  validates :start_time, presence: true
   validates :weight, numericality: { greater_than_or_equal_to: 30, less_than_or_equal_to: 200 }
 
   # アソシエーション

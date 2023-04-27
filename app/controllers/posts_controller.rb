@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:schedule_date, :weight, :fat_percentage, :today1_id, :today1_memo, :today2_id, :today2_memo, :today3_id, :today3_memo, :image, :memo).merge(user_id: current_user.id)
+    params.require(:post).permit(:start_time, :weight, :fat_percentage, :today1_id, :today1_memo, :today2_id, :today2_memo, :today3_id, :today3_memo, :image, :memo).merge(user_id: current_user.id)
   end
 
 end
