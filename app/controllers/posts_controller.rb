@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-
+    @data = Post.all
   end
 
   def new

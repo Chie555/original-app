@@ -1,3 +1,4 @@
+<%= javascript_pack_tag "application.js" %>
 <%= render "shared/header" %>
 <main class="main">
   <div class="inner">
@@ -7,19 +8,30 @@
         <%= link_to "#{current_user.nickname}さん", edit_user_registration_path(current_user), class: :greeting__link%>
       </div>
       <% @posts.each do |post| %>
-      <tr>
+      <div>
         <td><%= post.weight %>kg</td>
         <td><%= post.start_time.strftime("%Y-%m-%d") %></td>
         <td><%= link_to '編集する', edit_post_path(post.id) %></td>
         <td><%= link_to '削除する',post_path(post.id), method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %></td>
-      </tr>
+      </div>
       <% end %>
       <div>
-      <%= link_to(new_post_path, class: 'purchase-btn') do %>
-      <%= image_tag 'yotei_btn.png' , size: '237x47' ,class: "purchase-btn-icon" %>
+        <%= link_to(new_post_path, class: 'purchase-btn') do %>
+          <%= image_tag 'yotei_btn.png' , size: '237x47' ,class: "purchase-btn-icon" %>
+        <% end %>
+      </div>
+      <div class='form-text-wrap'>
+        <label class="form-text">体重グラフ</label>
+      </div>
+      <div>
+      <% if user_signed_in? && @posts.present? %>
+        <%= line_chart @data.group_by_day(:start_time).sum(:weight) %>
       <% end %>
       </div>
     <% end %>
+    <div class='form-text-wrap'>
+      <label class="form-text">カレンダー</label>
+    </div>
     <div class="card__wrapper">
     <%= month_calendar events: @posts do |date, posts| %>
         <%= date.day %>
